@@ -4,9 +4,9 @@ services:
   postgres:
     image: postgres:13
     environment:
-     - POSTGRES_DB=my_db
-     - POSTGRES_USER=root
-     - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=my_store_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
     ports:
       - '5432:5432'
     volumes:
@@ -15,8 +15,8 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     environment:
-     - PGADMIN_DEFAULT_EMAIL=root@admin.com
-     - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_EMAIL=root@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "5050:80"
     depends_on:
@@ -25,9 +25,9 @@ services:
   mysql:
     image: mysql:5
     environment:
-     - MYSQL_DATABASE=my_db
-     - MYSQL_USER=root
-     - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=my_store_db
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=123456
     ports:
       - '3306:3306'
     volumes:
@@ -36,8 +36,8 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
-     - MYSQL_ROOT_PASSWORD=123456
-     - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=123456
+      - PMA_HOST=mysql
     ports:
       - '8080:80'
     depends_on:
