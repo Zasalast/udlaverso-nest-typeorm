@@ -11,7 +11,7 @@ export class OrdersService {
   constructor(
     @InjectRepository(Order) private orderRepo: Repository<Order>,
     @InjectRepository(Customer) private customerRepo: Repository<Customer>,
-  ) {}
+  ) { }
 
   findAll() {
     return this.orderRepo.find();
@@ -47,5 +47,12 @@ export class OrdersService {
 
   remove(id: number) {
     return this.orderRepo.delete(id);
+  }
+  ordersByCustomer(customerId: number) {
+    return this.orderRepo.find({
+      where: {
+        customer: customerId,
+      },
+    });
   }
 }
