@@ -11,7 +11,6 @@ import {
   HttpCode,
   Res,
   UseGuards,
-  // ParseIntPipe,
 } from '@nestjs/common';
 import { Response } from 'express';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
