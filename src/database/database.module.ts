@@ -4,10 +4,10 @@ import { Client } from 'pg';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import config from '../config';
-
+import { getSsl } from './../common/helpers/get-ssl'
 const API_KEY = '12345634';
 const API_KEY_PROD = 'PROD1212121SA';
-
+const ssl = getSsl();
 // client.query('SELECT * FROM tasks', (err, res) => {
 //   console.error(err);
 //   console.log(res.rows);
@@ -27,13 +27,13 @@ const API_KEY_PROD = 'PROD1212121SA';
              username: user,
              password,
              database: dbName, */
-          type: 'postgres',
-          url: configService.postgresUrl,
+          entities: ['dist/**/*.entity{.ts,.js}'],
           synchronize: false,
           autoLoadEntities: true,
-          ssl: {
-            rejectUnauthorized: false,
-          }
+          type: 'postgres',
+          url: configService.postgresUrl,
+          ssl,
+
         };
       },
     }),
@@ -54,10 +54,7 @@ const API_KEY_PROD = 'PROD1212121SA';
            password,
            port, */
           connectionString: configService.postgresUrl,
-
-          ssl: {
-            rejectUnauthorized: false,
-          }
+          ssl,
         });
         client.connect();
         return client;
