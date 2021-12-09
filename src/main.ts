@@ -17,7 +17,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
   const config = new DocumentBuilder()
-    .setTitle('API')
+    .setTitle('API STORE')
     .setDescription('PLATZI STORE')
     .setVersion('1.0')
     .build();
