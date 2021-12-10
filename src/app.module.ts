@@ -22,7 +22,7 @@ import config from './config';
         JWT_SECRET: Joi.string().required(),
         DATABASE_NAME: Joi.string().required(),
         DATABASE_PORT: Joi.number().required(),
-        DATABASE_URL: Joi.string().required(),
+        // DATABASE_URL: Joi.string().required(),
       }),
     }),
     HttpModule,
@@ -33,17 +33,7 @@ import config from './config';
   ],
   controllers: [AppController],
   providers: [
-    AppService,
-    {
-      provide: 'TASKS',
-      useFactory: async (http: HttpService) => {
-        const tasks = await http
-          .get('https://jsonplaceholder.typicode.com/todos')
-          .toPromise();
-        return tasks.data;
-      },
-      inject: [HttpService],
-    },
+    AppService
   ],
 })
 export class AppModule { }

@@ -1,11 +1,12 @@
 module.exports = {
   type: 'postgres',
-  url: process.env.DATABASE_URL,
+  url: 'postgres://root:123456@localhost:5432/my_store_db',
   synchronize: false,
   logging: false,
-  migrations: ['src/database/migrations/*.ts'],
+  migrations: ['src/database/migrations /*.ts'],
   migrationsTableName: 'migrations',
-  entities: ['src/**/*.entity.ts'],
+  entities: ['src/**/*.entity.ts'
+  ],
   cli: {
     migrationsDir: 'src/database/migrations',
   },
