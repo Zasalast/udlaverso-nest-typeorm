@@ -1,6 +1,6 @@
 module.exports = {
   type: 'postgres',
-  url: 'postgres://root:123456@localhost:5432/my_store_db',
+  url: 'postgres://user:password@host:port/database',
   synchronize: false,
   logging: false,
   migrations: ['src/database/migrations /*.ts'],
