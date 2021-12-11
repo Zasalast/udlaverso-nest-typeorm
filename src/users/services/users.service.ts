@@ -9,7 +9,7 @@ import { Order } from '../entities/order.entity';
 import { CreateUserDto, UpdateUserDto } from '../dtos/user.dto';
 
 import { ProductsService } from './../../products/services/products.service';
-import { CustomersService } from './customers.service';
+import { PersonsService } from './persons.service';
 
 @Injectable()
 export class UsersService {
@@ -18,7 +18,7 @@ export class UsersService {
     private configService: ConfigService,
 
     @InjectRepository(User) private userRepo: Repository<User>,
-    private customersService: CustomersService,
+    private personsService: PersonsService,
   ) { }
 
   findAll() {
@@ -26,7 +26,7 @@ export class UsersService {
     const dbName = this.configService.get('DATABASE_NAME');
     console.log(apiKey, dbName);
     return this.userRepo.find({
-      relations: ['customer'],
+      relations: ['person'],
     });
   }
 
@@ -50,9 +50,9 @@ export class UsersService {
     const newUser = this.userRepo.create(data);
     const hashPassword = await bcrypt.hash(newUser.password, 10);
     newUser.password = hashPassword;
-    if (data.customerId) {
-      const customer = await this.customersService.findOne(data.customerId);
-      newUser.customer = customer;
+    if (data.personId) {
+      const person = await this.personsService.findOne(data.personId);
+      newUser.person = person;
     }
     return this.userRepo.save(newUser);
   }

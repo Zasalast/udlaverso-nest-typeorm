@@ -9,9 +9,9 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import { Customer } from './customer.entity';
+import { Person } from './person.entity';
 
-@Entity()
+@Entity({ name: 'user' })
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
@@ -37,7 +37,7 @@ export class User {
   })
   updateAt: Date;
 
-  @OneToOne(() => Customer, (customer) => customer.user, { nullable: true })
-  @JoinColumn({ name: 'customer_id' })
-  customer: Customer;
+  @OneToOne(() => Person, (person) => person.user, { nullable: true })
+  @JoinColumn({ name: 'person_id' })
+  person: Person;
 }

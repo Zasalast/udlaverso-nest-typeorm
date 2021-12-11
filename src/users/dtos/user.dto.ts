@@ -27,7 +27,7 @@ export class CreateUserDto {
   @IsOptional()
   @IsPositive()
   @ApiProperty()
-  readonly customerId: number;
+  readonly personId: number;
 }
 
-export class UpdateUserDto extends PartialType(CreateUserDto) {}
+export class UpdateUserDto extends PartialType(CreateUserDto) { }

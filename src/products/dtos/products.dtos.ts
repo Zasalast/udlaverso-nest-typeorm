@@ -22,16 +22,12 @@ export class CreateProductDto {
   @ApiProperty()
   readonly description: string;
 
-  @IsNumber()
-  @IsNotEmpty()
-  @IsPositive()
-  @ApiProperty()
-  readonly price: number;
 
-  @IsNumber()
+
+  @IsUrl()
   @IsNotEmpty()
   @ApiProperty()
-  readonly stock: number;
+  readonly url: string;
 
   @IsUrl()
   @IsNotEmpty()
@@ -41,7 +37,7 @@ export class CreateProductDto {
   @IsPositive()
   @IsNotEmpty()
   @ApiProperty()
-  readonly brandId: number;
+  readonly typeDataId: number;
 
   @IsArray()
   @IsNotEmpty()
@@ -49,7 +45,7 @@ export class CreateProductDto {
   readonly categoriesIds: number[];
 }
 
-export class UpdateProductDto extends PartialType(CreateProductDto) {}
+export class UpdateProductDto extends PartialType(CreateProductDto) { }
 
 export class FilterProductsDto {
   @IsOptional()
@@ -60,11 +56,5 @@ export class FilterProductsDto {
   @Min(0)
   offset: number;
 
-  @IsOptional()
-  @IsPositive()
-  minPrice: number;
 
-  @ValidateIf((item) => item.minPrice)
-  @IsPositive()
-  maxPrice: number;
 }

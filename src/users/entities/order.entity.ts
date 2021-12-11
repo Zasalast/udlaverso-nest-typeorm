@@ -6,7 +6,7 @@ import {
   Entity,
   OneToMany,
 } from 'typeorm';
-import { Customer } from './customer.entity';
+import { Person } from './person.entity';
 import { OrderItem } from './order-item.entity';
 
 import { Exclude, Expose } from 'class-transformer';
@@ -28,8 +28,8 @@ export class Order {
   })
   updateAt: Date;
 
-  @ManyToOne(() => Customer, (customer) => customer.orders)
-  customer: Customer;
+  @ManyToOne(() => Person, (person) => person.orders)
+  person: Person;
 
   @Exclude()
   @OneToMany(() => OrderItem, (item) => item.order)
@@ -49,16 +49,5 @@ export class Order {
     return [];
   }
 
-  @Expose()
-  get total() {
-    if (this.items) {
-      return this.items
-        .filter((item) => !!item)
-        .reduce((total, item) => {
-          const totalItem = item.product.price * item.quantity;
-          return total + totalItem;
-        }, 0);
-    }
-    return 0;
-  }
+
 }

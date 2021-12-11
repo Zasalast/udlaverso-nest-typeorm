@@ -1,7 +1,7 @@
 import { IsString, IsUrl, IsNotEmpty } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
 
-export class CreateBrandDto {
+export class CreateTypeDataDto {
   @IsString()
   @IsNotEmpty()
   readonly name: string;
@@ -11,4 +11,4 @@ export class CreateBrandDto {
   readonly image: string;
 }
 
-export class UpdateBrandDto extends PartialType(CreateBrandDto) {}
+export class UpdateTypeDataDto extends PartialType(CreateTypeDataDto) { }

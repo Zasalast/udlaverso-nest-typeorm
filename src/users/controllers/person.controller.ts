@@ -9,12 +9,12 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 
-import { CustomersService } from '../services/customers.service';
-import { CreateCustomerDto, UpdateCustomerDto } from '../dtos/customer.dto';
+import { PersonsService } from '../services/persons.service';
+import { CreatePersonDto, UpdatePersonDto } from '../dtos/person.dto';
 
 @Controller('customers')
-export class CustomerController {
-  constructor(private customersService: CustomersService) {}
+export class PersonController {
+  constructor(private customersService: PersonsService) { }
 
   @Get()
   findAll() {
@@ -27,14 +27,14 @@ export class CustomerController {
   }
 
   @Post()
-  create(@Body() payload: CreateCustomerDto) {
+  create(@Body() payload: CreatePersonDto) {
     return this.customersService.create(payload);
   }
 
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() payload: UpdateCustomerDto,
+    @Body() payload: UpdatePersonDto,
   ) {
     return this.customersService.update(id, payload);
   }

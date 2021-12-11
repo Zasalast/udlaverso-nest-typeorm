@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:13
     environment:
-      - POSTGRES_DB=my_store_db
+      - POSTGRES_DB=database_udla_redes
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=123456
     ports:

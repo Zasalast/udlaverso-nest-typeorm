@@ -1,29 +1,24 @@
 import {
   Entity,
-  Column,
   PrimaryGeneratedColumn,
+  Column,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
   OneToMany,
 } from 'typeorm';
 
-import { User } from './user.entity';
-import { Order } from './order.entity';
+import { Product } from './product.entity';
 
-@Entity()
-export class Customer {
+@Entity({ name: 'typedata' })
+export class TypeData {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: 'varchar', length: 255, unique: true })
   name: string;
 
   @Column({ type: 'varchar', length: 255 })
-  lastName: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  phone: string;
+  image: string;
 
   @CreateDateColumn({
     type: 'timestamptz',
@@ -37,9 +32,6 @@ export class Customer {
   })
   updateAt: Date;
 
-  @OneToOne(() => User, (user) => user.customer, { nullable: true })
-  user: User;
-
-  @OneToMany(() => Order, (order) => order.customer)
-  orders: Order[];
+  @OneToMany(() => Product, (product) => product.typeData)
+  products: Product[];
 }

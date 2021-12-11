@@ -5,7 +5,7 @@ export class CreateOrderDto {
   @IsPositive()
   @IsNotEmpty()
   @ApiProperty()
-  readonly customerId: number;
+  readonly personId: number;
 }
 
-export class UpdateOrderDto extends PartialType(CreateOrderDto) {}
+export class UpdateOrderDto extends PartialType(CreateOrderDto) { }

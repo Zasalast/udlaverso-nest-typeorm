@@ -11,11 +11,11 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import { Brand } from './brand.entity';
+import { TypeData } from './typedata.entity';
 import { Category } from './category.entity';
 
 @Entity({ name: 'products' })
-@Index(['price', 'stock'])
+
 export class Product {
   @PrimaryGeneratedColumn()
   id: number;
@@ -26,12 +26,8 @@ export class Product {
   @Column({ type: 'text' })
   description: string;
 
-  @Index()
-  @Column({ type: 'int' })
-  price: number;
-
-  @Column({ type: 'int' })
-  stock: number;
+  @Column({ type: 'varchar' })
+  url: string;
 
   @Column({ type: 'varchar' })
   image: string;
@@ -50,9 +46,9 @@ export class Product {
   })
   updateAt: Date;
 
-  @ManyToOne(() => Brand, (brand) => brand.products)
-  @JoinColumn({ name: 'brand_id' })
-  brand: Brand;
+  @ManyToOne(() => TypeData, (typeData) => typeData.products)
+  @JoinColumn({ name: 'type_data_id' })
+  typeData: TypeData;
 
   @ManyToMany(() => Category, (category) => category.products)
   @JoinTable({
