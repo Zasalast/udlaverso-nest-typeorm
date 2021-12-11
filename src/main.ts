@@ -18,8 +18,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
   const config = new DocumentBuilder()
-    .setTitle('API STORE')
-    .setDescription('PLATZI STORE')
+    .setTitle('API REST UDLA VERSO')
+    .setDescription('UDLAVERSO el universo a sus manos')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
