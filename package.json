@@ -1,8 +1,8 @@
 {
-  "name": "platzi-store",
+  "name": "Udla Verso",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Semillero de investigación",
+  "author": "Zanoni Alfredo Salas Tobón",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
