@@ -37,8 +37,7 @@ const API_KEY_PROD = 'PROD1212121SA';
       provide: 'API_KEY',
       useValue: process.env.NODE_ENV === 'prod' ? API_KEY_PROD : API_KEY,
     },
-
   ],
   exports: ['API_KEY', TypeOrmModule],
 })
-export class DatabaseModule { }
+export class DatabaseModule {}
