@@ -1,4 +1,5 @@
 import { Exclude } from 'class-transformer';
+import { Product } from 'src/products/entities/product.entity';
 import {
   Entity,
   Column,
@@ -7,6 +8,7 @@ import {
   UpdateDateColumn,
   OneToOne,
   JoinColumn,
+  ManyToMany,
 } from 'typeorm';
 
 import { Person } from './person.entity';
@@ -40,4 +42,6 @@ export class User {
   @OneToOne(() => Person, (person) => person.user, { nullable: true })
   @JoinColumn({ name: 'person_id' })
   person: Person;
+  @ManyToMany(() => Product, (product) => product.users)
+  products: Product[];
 }

@@ -13,6 +13,7 @@ import {
 
 import { TypeData } from './typedata.entity';
 import { Category } from './category.entity';
+import { User } from 'src/users/entities/user.entity';
 
 @Entity({ name: 'products' })
 
@@ -61,4 +62,16 @@ export class Product {
     },
   })
   categories: Category[];
+
+  @ManyToMany(() => User, (user) => user.products)
+  @JoinTable({
+    name: 'products_users',
+    joinColumn: {
+      name: 'product_id',
+    },
+    inverseJoinColumn: {
+      name: 'user_id',
+    },
+  })
+  users: User[];
 }

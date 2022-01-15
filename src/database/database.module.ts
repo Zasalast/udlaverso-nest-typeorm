@@ -16,6 +16,7 @@ const API_KEY_PROD = 'PROD1212121SA';
       useFactory: (configService: ConfigType<typeof config>) => {
         /*  const { user, host, dbName, password, port } = configService.postgres; */
         return {
+          entities: ['dist/**/*.entity{.ts,.js}'],
           type: 'postgres',
           url: configService.postgresUrl,
           /*  host,
