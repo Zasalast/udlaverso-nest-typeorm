@@ -1,3 +1,8 @@
+|Programming languages|Backend|
+|---|---|
+|<img src="https://img.shields.io/badge/typescript-323330?style=for-the-badge&logo= typescript&logoColor=yellow"/> | <img src="https://img.shields.io/badge/typeorm-E34F26?style=for-the-badge&logo=typeorm&logoColor=white"/> <img src="https://img.shields.io/badge/typescript-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/jwt-323330?style=for-the-badge&logo=jwt&logoColor=blue"/>  <img src="https://img.shields.io/badge/postgresql-1572B6?style=for-the-badge&logo=postgresql&logoColor=white"/> |<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />  |
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
